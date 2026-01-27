@@ -1,0 +1,31 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>Miles Per Gallons Calculator</h1>
+<p>Enter (miles driven) and (gallons used) to calculate miles per gallon.</p>
+
+<form method="post">
+    <div>
+        <label for="MilesDriven">Miles Driven</label>
+        <input type="number"  id="MilesDriven" name="MilesDriven" required min="0" />
+    </div>
+
+    <div>
+        <label for="GallonsUsed">Gallons Used</label>
+        <input type="number"  id="GallonsUsed" name="GallonsUsed" required min="0.00" />
+    </div>
+
+    <div>
+        <button type="submit">Calculate Miles Per Gallons</button>
+    </div>
+</form>
+
+
+@if (Model.ShowResult)
+{
+    <h2>Result</h2>
+    <p>For @Model.MilesDriven miles and @Model.GallonsUsed gallons, your Miles Per Gallons is @Model.MilesPerGallon .</p>
+}
